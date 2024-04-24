@@ -1,0 +1,6 @@
+Train:
+python train_transformer.py --output_dir ./output/timit_non_targeted_trans  --speaker_factor 1 --speech_factor 5 --norm_factor 1000 --speech_kld_factor 1 --data_root ./data/TIMIT/TIMIT_lower --no_dist --speaker_model ./SincNet_weight/SincNet_TIMIT/model_raw.pkl --speech_model ./kaldi_weight/epoch_23.pth --speaker_cfg ./config/timit_speaker_transformer.cfg --norm_clip 0.01 --no_dist
+
+
+Test:
+python train_transformer.py --pt_file ./output/timit_non_targeted_trans/best.pth   --data_root  ./data/TIMIT/TIMIT_lower --speaker_model  ./SincNet_weight/SincNet_TIMIT/model_raw.pkl  --speaker_cfg ./config/timit_speaker_transformer.cfg --no_dist --test --speech_model ./kaldi_weight/epoch_23.pth
